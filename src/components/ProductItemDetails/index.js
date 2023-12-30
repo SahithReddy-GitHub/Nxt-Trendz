@@ -7,13 +7,19 @@ import './index.css'
 import SimilarProductItem from '../SimilarProductItem'
 import Header from '../Header'
 
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
+
 class ProductItemDetails extends Component {
   state = {
-    isLoading: true,
+    apiStatus: apiStatusConstants.initial,
     details: [],
     cartValue: 1,
     similarProductsDetails: [],
-    hasError: false,
   }
 
   componentDidMount = () => {
@@ -24,7 +30,7 @@ class ProductItemDetails extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
-    this.setState({isLoading: false})
+    this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
 
     const options = {
@@ -52,14 +58,13 @@ class ProductItemDetails extends Component {
       }
 
       this.setState({
-        isLoading: false,
+        apiStatus: apiStatusConstants.success,
         details: updatedData,
         similarProductsDetails: updatedData.similarProducts,
-        hasError: false,
       })
     } else {
-      console.log('error got')
-      this.setState({hasError: true})
+      console.log('error got', response)
+      this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
 
@@ -165,11 +170,11 @@ class ProductItemDetails extends Component {
     )
   }
 
-  renderErrorPage = () => (
+  renderFailureView = () => (
     <div className="failure-con">
       <img
         src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
-        alt="error view"
+        alt="failure view"
         className="fail-img"
       />
       <h1 className="fail-head">Product Not Found</h1>
@@ -179,21 +184,26 @@ class ProductItemDetails extends Component {
     </div>
   )
 
-  render() {
-    const {isLoading, hasError} = this.state
-    let content
-    if (isLoading === true) {
-      content = this.renderLoader()
-    } else if (hasError === true) {
-      content = this.renderErrorPage()
-    } else {
-      content = this.renderProductItemDetails()
-    }
+  renderFinal = () => {
+    const {apiStatus} = this.state
 
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderProductItemDetails()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoader()
+      default:
+        return null
+    }
+  }
+
+  render() {
     return (
       <div className="bg-custom-details">
         <Header />
-        {content}
+        {this.renderFinal()}
       </div>
     )
   }
