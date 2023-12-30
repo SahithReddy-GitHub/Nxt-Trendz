@@ -1,0 +1,155 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'roboto';
+}
+.bg-custom-details {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 90%;
+  max-width: 1110px;
+}
+.loader-css {
+  align-self: center;
+  margin-top: 50px;
+}
+.details-con {
+  display: flex;
+  flex-direction: row;
+}
+.product-img {
+  width: 50%;
+  border-radius: 15px;
+  margin-right: 25px;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.product-main-head {
+  margin-bottom: 35px;
+  color: #12022f;
+}
+
+.price {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #12022f;
+}
+.rating-con {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.rating-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #3b82f6;
+  padding: 5px 10px 5px 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.rating-value {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.star-img {
+  width: 10px;
+  height: 10px;
+}
+.review-para {
+  font-size: 10px;
+  color: #616e7c;
+  font-weight: 700;
+}
+
+.desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: #616e7c;
+  margin-bottom: 25px;
+}
+.para {
+  font-size: 14px;
+  font-weight: 500;
+  color: #616e7c;
+}
+.comb-con {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.head {
+  font-size: 14px;
+  font-weight: 700;
+  color: #12022f;
+  margin-right: 10px;
+}
+.plus-minus-con {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 20px;
+}
+.cart {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0px 20px 0px 20px;
+}
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.add-btn {
+  padding: 5px 10px 5px 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #3b82f6;
+  color: #ffffff;
+  width: 140px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.similar-products {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.cona {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  list-style-type: none;
+}
+.simii-head {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+.failure-con {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+.fail-head {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 4;
+}
+.fail-img {
+  width: 50%;
+}
